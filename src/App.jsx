@@ -151,7 +151,7 @@ function App() {
 
       {/* ===== FOOTER ===== */}
       <footer className="site-footer">
-        © made with love by christine zhang ♡
+        © made with love by christine zhang
       </footer>
     </div>
   )
