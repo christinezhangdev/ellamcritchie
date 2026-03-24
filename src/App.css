@@ -1,6 +1,7 @@
 /* ===== SITE ===== */
 .site {
   width: 100%;
+  overflow-x: hidden;
 }
 
 /* ===== HERO / LANDING ===== */
@@ -20,7 +21,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 24px 48px;
+  padding: clamp(16px, 3vw, 24px) clamp(20px, 4vw, 48px);
   position: relative;
   z-index: 2;
 }
@@ -29,11 +30,11 @@
 .top-bar-right {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: clamp(12px, 2vw, 24px);
 }
 
 .top-bar span {
-  font-size: 15px;
+  font-size: clamp(12px, 1.2vw, 15px);
   font-weight: 500;
   letter-spacing: 0.06em;
   line-height: 20px;
@@ -58,26 +59,27 @@
 
 .hero-title {
   font-family: 'Archivo Black', system-ui, sans-serif;
-  font-size: 200px;
+  font-size: clamp(48px, 13.9vw, 200px);
   font-weight: 400;
   letter-spacing: -0.04em;
-  line-height: 180px;
+  line-height: 0.9;
   color: #1A1A18;
-  padding: 0 48px;
+  padding: 0 clamp(20px, 4vw, 48px);
   position: relative;
   z-index: 2;
   white-space: pre-wrap;
   margin: 0;
+  max-width: 1440px;
 }
 
 .hero-blurb {
   font-family: 'Archivo Black', system-ui, sans-serif;
-  font-size: 24px;
+  font-size: clamp(14px, 1.8vw, 24px);
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.5;
   color: #1A1A18;
-  padding: 20px 48px 0;
+  padding: clamp(12px, 1.5vw, 20px) clamp(20px, 4vw, 48px) 0;
   position: relative;
   z-index: 2;
   margin: 0;
@@ -95,25 +97,25 @@
 
 .bottom-right-text {
   position: absolute;
-  bottom: 40px;
-  right: 48px;
+  bottom: clamp(20px, 4vw, 40px);
+  right: clamp(20px, 4vw, 48px);
   z-index: 2;
   font-family: 'Archivo Black', system-ui, sans-serif;
-  font-size: 48px;
+  font-size: clamp(28px, 3.5vw, 48px);
   font-weight: 400;
   letter-spacing: -0.02em;
-  line-height: 48px;
+  line-height: 1;
   text-align: right;
   color: #1A1A18;
 }
 
 .bottom-left-email {
   position: absolute;
-  bottom: 48px;
-  left: 48px;
+  bottom: clamp(20px, 4vw, 48px);
+  left: clamp(20px, 4vw, 48px);
   z-index: 2;
   display: inline-block;
-  padding: 22px 36px;
+  padding: clamp(14px, 1.8vw, 22px) clamp(20px, 2.5vw, 36px);
   overflow: hidden;
   text-decoration: none;
   border-radius: 40px;
@@ -153,7 +155,7 @@
   position: relative;
   z-index: 1;
   font-family: 'Inter', system-ui, sans-serif;
-  font-size: 18px;
+  font-size: clamp(12px, 1.3vw, 18px);
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.4;
@@ -164,7 +166,7 @@
 .site-footer {
   background: #EBB2DC;
   text-align: center;
-  padding: 24px 48px;
+  padding: 24px clamp(20px, 4vw, 48px);
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -176,7 +178,7 @@
 .work-section {
   position: relative;
   overflow: hidden;
-  padding: 80px 48px 120px;
+  padding: clamp(48px, 6vw, 80px) clamp(20px, 4vw, 48px) clamp(60px, 8vw, 120px);
 }
 
 .work-grid {
@@ -184,7 +186,7 @@
   z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px 40px;
+  gap: clamp(24px, 3.5vw, 48px) clamp(20px, 3vw, 40px);
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -203,12 +205,12 @@
 }
 
 .grid-label {
-  padding-top: 14px;
+  padding-top: clamp(8px, 1vw, 14px);
 }
 
 .grid-title {
   font-family: 'Inter', system-ui, sans-serif;
-  font-size: 18px;
+  font-size: clamp(14px, 1.3vw, 18px);
   font-weight: 500;
   color: #1A1A18;
   letter-spacing: -0.01em;
@@ -216,13 +218,28 @@
 
 .grid-sep {
   font-family: 'Inter', system-ui, sans-serif;
-  font-size: 18px;
+  font-size: clamp(14px, 1.3vw, 18px);
   color: #1A1A18;
 }
 
 .grid-desc {
   font-family: 'Inter', system-ui, sans-serif;
-  font-size: 18px;
+  font-size: clamp(14px, 1.3vw, 18px);
   color: #1A1A18;
   letter-spacing: -0.01em;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    white-space: normal;
+  }
+
+  .bottom-left-email {
+    max-width: calc(100% - 40px);
+  }
 }
